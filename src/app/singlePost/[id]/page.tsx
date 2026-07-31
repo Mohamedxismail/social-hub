@@ -30,7 +30,7 @@ export async function SinglePost({ params }: Props) {
 
 
   return (
-    <div className='mt-22 text-white ms-10 w-140'>
+    <div className=' text-white md:ms-10 ms-2 p-3 mb-20'>
 
       <PostCard
         key={post.id}
