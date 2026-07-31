@@ -1,6 +1,5 @@
 import FollowersList from "@/app/_components/FollowerList/FollowerList";
 import { getUserProfile } from "@/services/profile";
-import Image from "next/image";
 import Link from "next/link";
 import { FaUsers, FaArrowLeft } from "react-icons/fa";
 import { IoPersonAdd } from "react-icons/io5";
@@ -53,7 +52,7 @@ const FollowingPage = async ({ params }: Props) => {
                         </div>
                         <h2 className="text-xl font-semibold text-gray-200">No following yet</h2>
                         <p className="font-normal text-sm text-gray-400 max-w-sm">
-                            When people start following this account, they'll show up here.
+                            When people start following this account, they will show up here.
                         </p>
                     </div>
                 ) : (

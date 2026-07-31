@@ -1,7 +1,5 @@
 import FollowersList from "@/app/_components/FollowerList/FollowerList";
-import FollowUser from "@/app/_components/FollowUser/FollowUser";
 import { getUserProfile } from "@/services/profile";
-import Image from "next/image";
 import Link from "next/link";
 import { FaUsers, FaArrowLeft } from "react-icons/fa";
 
@@ -17,9 +15,6 @@ const FollowersPage = async ({ params }: Props) => {
     const followers = data?.user?.followers || [];
     console.log(followers);
     
-    
-    
-
     return (
         <div className="max-w-2xl mb-24 px-4   py-2 text-white min-h-screen">
             
@@ -52,7 +47,7 @@ const FollowersPage = async ({ params }: Props) => {
                         </div>
                         <h2 className="text-xl font-semibold text-gray-200">No followers yet</h2>
                         <p className="font-normal text-sm text-gray-400 max-w-sm">
-                            This account doesn't have any followers yet.
+                            This account does not have any followers yet.
                         </p>
                     </div>
                 ) : (
