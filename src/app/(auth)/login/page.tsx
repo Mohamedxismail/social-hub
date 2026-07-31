@@ -123,7 +123,7 @@ const Login = () => {
                         )}
 
                         <span className="text-sm  font-light text-gray-400">
-                            Don't have an account ?{" "}
+                            Don&apos;t have an account ?{" "}
                             <Link
                                 href="/register"
                                 className="text-[#111E2D] hover:underline font-light"

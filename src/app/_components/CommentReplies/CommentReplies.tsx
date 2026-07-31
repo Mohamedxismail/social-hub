@@ -2,21 +2,29 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react"; 
 
-type CommentsReplies = {
+type CommentsRepliesProps = {
   postId: string;
   commentId: string;
-  repliesCount: number
+  repliesCount: number;
 };
-type DataProps = {
-  content: string;
-  name: string;
-  date: string;
-  image: string;
-}
 
-function CommentReplies({ postId, commentId, repliesCount }: CommentsReplies) {
+type CommentCreator = {
+  _id: string;
+  name: string;
+  photo: string;
+};
+
+type ReplyItem = {
+  _id: string;
+  content: string;
+  createdAt: string;
+  commentCreator: CommentCreator;
+  image?: string;
+};
+
+function CommentReplies({ postId, commentId, repliesCount }: CommentsRepliesProps) {
   const [open, setOpen] = useState(false);
-  const [replies, setReplies] = useState<DataProps[]>([]);
+  const [replies, setReplies] = useState<ReplyItem[]>([]);
   
   const prevCountRef = useRef(repliesCount);
 
@@ -61,7 +69,7 @@ function CommentReplies({ postId, commentId, repliesCount }: CommentsReplies) {
       {open && (
         <div className="mt-3 pl-4 border-l-2 border-zinc-800 space-y-3">
           {replies.length > 0 ? (
-            replies.map((reply: any) => (
+            replies.map((reply: ReplyItem) => (
               <div key={reply._id} className="flex items-start gap-3 bg-[#1a1a1a]/40 p-2.5 rounded-lg border border-zinc-800/40" >
                 <Image 
                   src={reply.commentCreator?.photo} 
@@ -87,8 +95,7 @@ function CommentReplies({ postId, commentId, repliesCount }: CommentsReplies) {
                   </div>
                   <p className="mt-1 text-sm text-zinc-300 font-light leading-relaxed wrap-break-word">
                     {reply.content}
-                    {reply.image && <Image className="mt-3 mb-3" src={reply.image} alt="image reply" width={200} height={100}/>
-}
+                    {reply.image && <Image className="mt-3 mb-3" src={reply.image} alt="image reply" width={200} height={100}/>}
                   </p>
                 </div>
               </div>

@@ -26,19 +26,19 @@ export default async function Page() {
   const data = await res.json();
 
   if (!res.ok) {
-  return (
-    <div className="mt-20 text-center text-red-500">
-      Failed to load notifications.
-    </div>
-  );
-}
+    return (
+      <div className="mt-20 text-center text-red-500">
+        Failed to load notifications.
+      </div>
+    );
+  }
 
   const notifications: Notifications[] =
     (data?.data?.notifications ?? []).filter(
       (notification: Notifications) => !notification.entity?.unavailable
     );
-    console.log(notifications);
-    
+  console.log(notifications);
+
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
 
@@ -82,11 +82,10 @@ export default async function Page() {
             >
               <div
                 className={`relative flex items-start gap-4 rounded-2xl border p-4 transition-all duration-200  hover:bg-[#262b33]
-                ${
-                  notification.isRead
+                ${notification.isRead
                     ? "border-[#2e3238] bg-[#1f2329]"
                     : "border-[#2e3238] bg-[#1b2434]"
-                }`}
+                  }`}
               >
                 <div className="relative">
                   <Image
@@ -96,7 +95,7 @@ export default async function Page() {
                     height={50}
                     className="rounded-full object-cover"
                   />
-                  
+
 
                   <div className="absolute -bottom-1 -right-1 bg-[#111827] rounded-full p-1 border border-[#2e3238]">
                     {NotificationIcon(notification.type)}
@@ -138,18 +137,18 @@ export default async function Page() {
             </Link>
           ))
         ) : (
-           <div className="bg-[#111827]/80  mb-10  rounded-3xl p-12 flex flex-col justify-center items-center text-center shadow-lg backdrop-blur-sm">
-             <div className="bg-slate-800 text-blue-500 border border-blue-500/20 p-4 rounded-2xl flex items-center justify-center mb-5">
-                              
-                                 <IoMdNotificationsOff className="md:text-3xl text-2xl text-slate-200" />
-            
-                      </div>
+          <div className="bg-[#111827]/80  mb-10  rounded-3xl p-12 flex flex-col justify-center items-center text-center shadow-lg backdrop-blur-sm">
+            <div className="bg-slate-800 text-blue-500 border border-blue-500/20 p-4 rounded-2xl flex items-center justify-center mb-5">
+
+              <IoMdNotificationsOff className="md:text-3xl text-2xl text-slate-200" />
+
+            </div>
             <p className="md:text-2xl text-xl font-semibold text-white">
               No Notifications Yet
             </p>
 
             <p className="text-md text-slate-400 mt-2">
-              When someone interacts with your posts or profile, you'll see it
+              When someone interacts with your posts or profile, you will see it
               here.
             </p>
           </div>

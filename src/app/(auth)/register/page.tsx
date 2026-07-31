@@ -49,9 +49,9 @@ const Register = () => {
             });
             router.push("/login");
             console.log(data);
-        } catch (error: any) {
+        } catch (error) {
             setLoadingApi(false);
-            toast.error(error?.response?.data?.message || "An error occurred", {
+            toast.error("An error occurred", {
                 description: "Please try again",
                 duration: 2000,
                 position: "top-center"

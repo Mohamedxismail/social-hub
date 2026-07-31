@@ -17,10 +17,27 @@ type PostProps = {
   isInline?: boolean; 
 };
 
+type CommentCreator = {
+  _id: string;
+  name: string;
+  photo: string;
+};
+
+type CommentItem = {
+  _id: string;
+  content: string;
+  createdAt: string;
+  post: string;
+  likes: string[];
+  repliesCount: number;
+  commentCreator: CommentCreator;
+  image?: string;
+};
+
 function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
   const { data: session } = useSession();
-  const [comments, setComments] = useState<any[]>([]);
-  const [open, setOpen] = useState(isInline); // يفتح تلقائي لو isInline
+  const [comments, setComments] = useState<CommentItem[]>([]);
+  const [open, setOpen] = useState(isInline);
   const [activeDropdownId, setActiveDropdownId] = useState<string | null>(null);
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
 
@@ -32,7 +49,6 @@ function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
     console.log(data);
   }
 
-  
   useEffect(() => {
     if (isInline) {
       getComments();
@@ -40,19 +56,18 @@ function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
   }, [isInline, postId]);
 
   function handleUpdateLike(commentId: string) {
+    if (!session?.user?._id) return;
+    const userId = session.user._id;
+
     setComments((prev) =>
       prev.map((comment) => {
         if (comment._id === commentId) {
-          const alreadyLiked = comment.likes.includes(
-            session?.user._id
-          );
+          const alreadyLiked = comment.likes.includes(userId);
           return {
             ...comment,
             likes: alreadyLiked
-              ? comment.likes.filter(
-                  (id: string) => id !== session?.user._id
-                )
-              : [...comment.likes, session?.user._id],
+              ? comment.likes.filter((id) => id !== userId)
+              : [...comment.likes, userId],
           };
         }
         return comment;
@@ -62,7 +77,6 @@ function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
 
   return (
     <>
-      
       {!isInline && (
         <div className="flex items-center gap-2">
           <button onClick={getComments} className="cursor-pointer text-white transition-colors">
@@ -98,21 +112,20 @@ function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
               )}
             </div>
 
-            
             <div className="flex-1 overflow-y-auto pr-1 space-y-4 custom-scrollbar">
               {comments.length > 0 ? (
-                comments.map((comment: any) => {
-                  const isLiked = comment.likes.includes(
-                    session?.user._id
-                  );
+                comments.map((comment: CommentItem) => {
+                  const isLiked = session?.user?._id
+                    ? comment.likes.includes(session.user._id)
+                    : false;
                   const isMyComment =
-                    comment.commentCreator?._id === session?.user._id;
+                    comment.commentCreator?._id === session?.user?._id;
                   const isDropdownOpen = activeDropdownId === comment._id;
                   const isEditing = editingCommentId === comment._id;
 
                   return (
                     <div key={comment._id} className="flex flex-col border-b border-zinc-800/40 pb-4 last:border-0 last:pb-0">
-                     
+                      
                       <div className="flex items-start gap-3">
                         <Image
                           src={comment.commentCreator?.photo}
@@ -181,8 +194,7 @@ function CommentsPost({ postId, commentsCount, isInline = false }: PostProps) {
                           {!isEditing && (
                             <p className="mt-1.5 text-zinc-300 text-sm font-light leading-relaxed wrap-break-word">
                               {comment.content} 
-                              {comment.image &&<Image className="mt-2" alt="comment image" src={comment.image} width={200} height={100}/>
-}
+                              {comment.image && <Image className="mt-2" alt="comment image" src={comment.image} width={200} height={100}/>}
                             </p>
                           )}
 

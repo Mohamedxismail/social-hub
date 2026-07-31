@@ -40,7 +40,7 @@ export default async function UserPosts({userId}:userProps) {
             <CgUnavailable className='text-7xl' />
             <p className='text-3xl'>No posts available</p>
             </div>}
-          {posts.map((post: any) => (
+          {posts.map((post :React.ComponentProps<typeof PostCard>["post"]) => (
             <PostCard
               key={post.id || post._id}
               post={post}
