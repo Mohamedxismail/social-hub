@@ -63,7 +63,7 @@ const Login = () => {
     return (
         <div className='container m-auto md:flex md:items-center md:justify-center bg-white   '>
             <AuthHeader />
-            <div className="md:mt-0 mt-12 md:w-auto w-80 mx-auto">
+            <div className="md:mt-0 mt-12 md:w-auto w-70 mx-auto">
                 <Image src={loginImage} height={1000} width={1000} priority alt="login" />
             </div>
             <div className="container mx-auto flex flex-col items-center  ">
