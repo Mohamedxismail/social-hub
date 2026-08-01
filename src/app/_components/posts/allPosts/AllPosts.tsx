@@ -1,4 +1,5 @@
 import { getMyToken } from "@/utilities/token";
+import { redirect } from "next/navigation";
 import PostCard from "../../PostCard.tsx/PostCard";
 
 type DecodedToken = {
@@ -12,7 +13,7 @@ export async function AllPosts() {
   const tokenv = (await getMyToken()) as DecodedToken | null;
 
   if (!tokenv?.token) {
-    return <p className="text-center mt-5">Please login again.</p>;
+    redirect("/login");
   }
 
   const res = await fetch("https://route-posts.routemisr.com/posts", {
@@ -25,6 +26,7 @@ export async function AllPosts() {
 
   if (!res.ok || !data?.data?.posts) {
     console.log(data);
+
     return (
       <p className="text-center mt-5 text-red-500">
         Failed to load posts.
