@@ -10,7 +10,7 @@ type DecodedToken = {
 
 export async function AllPosts() {
   const tokenv = (await getMyToken()) as DecodedToken;
-  const token = tokenv.token;
+  const token = tokenv?.token;
 
   const res = await fetch("https://route-posts.routemisr.com/posts", {
     headers: {
