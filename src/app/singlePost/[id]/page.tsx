@@ -1,4 +1,3 @@
-import CommentsPost from "@/app/_components/CommentsPost/CommentsPost";
 import PostCard from "@/app/_components/PostCard.tsx/PostCard";
 import { getMyToken } from "@/utilities/token";
 import { cookies } from "next/headers";

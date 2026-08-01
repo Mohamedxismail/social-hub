@@ -50,7 +50,7 @@ export default function ChangePassword() {
           message: "Incorrect current password",
         });
       }
-    } catch (error) {
+    } catch {
       passwordForm.setError("currentPassword", {
         type: "manual",
         message: "Incorrect current password",

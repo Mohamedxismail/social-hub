@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { AlertTriangle, RotateCcw, House } from "lucide-react";
+import { AlertTriangle,House } from "lucide-react";
 
 export default function notFound(){
 

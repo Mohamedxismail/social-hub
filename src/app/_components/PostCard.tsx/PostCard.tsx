@@ -4,8 +4,6 @@ import LikePost from "../PostActions/LikePost/LikePost";
 import BookmarkPost from "../PostActions/bookmarkPost/BookmarkPost";
 import CommentsPost from "../CommentsPost/CommentsPost";
 import SharePost from "../sharePost/SharePost";
-import DeletePost from "../DeletePost/DeletePost";
-import UpdatePost from "../UpdatePost/UpdatePost";
 import PostActions from "../PostActions/PostActions";
 
 export interface PostUser {

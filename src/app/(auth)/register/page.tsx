@@ -49,7 +49,7 @@ const Register = () => {
             });
             router.push("/login");
             console.log(data);
-        } catch (error) {
+        } catch {
             setLoadingApi(false);
             toast.error("An error occurred", {
                 description: "Please try again",

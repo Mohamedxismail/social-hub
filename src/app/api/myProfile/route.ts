@@ -1,7 +1,7 @@
 import { getMyToken } from "@/utilities/token";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req:NextRequest) {
+export async function GET() {
     const tokenv = await getMyToken()
     const token = tokenv?.token
     const res = await fetch("https://route-posts.routemisr.com/users/profile-data",{

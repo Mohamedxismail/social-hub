@@ -1,7 +1,6 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { MdAddPhotoAlternate, MdInsertPhoto } from "react-icons/md";
 import { PiShareFat } from "react-icons/pi";
 import { toast } from "sonner";
 
@@ -9,7 +8,7 @@ type ShareProps = {
     postId: string;
     shareCount: number;
 }
-function SharePost({ postId, shareCount }: ShareProps) {
+function SharePost({ postId }: ShareProps) {
     const [text, setText] = useState("")
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)

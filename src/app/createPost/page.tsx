@@ -7,7 +7,6 @@ import { toast } from "sonner";
 import { usePathname, useRouter } from "next/navigation";
 import { MdAddPhotoAlternate } from "react-icons/md";
 import Link from "next/link";
-import { FaPenNib } from "react-icons/fa";
 import { FaPenToSquare } from "react-icons/fa6";
 
 export default function Post() {

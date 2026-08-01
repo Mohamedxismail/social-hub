@@ -1,9 +1,7 @@
-import { authOptions } from "@/auth";
-import { getServerSession } from "next-auth";
 import Post from "./createPost/page";
 import AllPosts from "./_components/posts/allPosts/AllPosts";
 export default async function Page() {
-  const session = await getServerSession(authOptions);
+  
   
   return (
     <>

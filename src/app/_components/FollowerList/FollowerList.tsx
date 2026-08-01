@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
-import FollowUser from "../FollowUser/FollowUser";
 
 export interface FollowerUser {
   _id: string;

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Check, UserPlus } from "lucide-react";
+import { UserPlus } from "lucide-react";
 
 type UserProps = {
   userId: string;
