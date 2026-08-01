@@ -63,15 +63,15 @@ const Login = () => {
     return (
         <div className='container m-auto md:flex md:items-center md:justify-center bg-white   '>
             <AuthHeader />
-            <div className="md:mt-0 mt-14 md:w-auto w-80 mx-auto">
+            <div className="md:mt-0 mt-12 md:w-auto w-80 mx-auto">
                 <Image src={loginImage} height={1000} width={1000} priority alt="login" />
             </div>
             <div className="container mx-auto flex flex-col items-center  ">
                 <div className='title text-center'>
-                    <h1 className='text-4xl mt-1 font-bold text-[#111E2D]'>Login</h1>
+                    <h1 className='md:text-4xl text-3xl  font-bold text-[#111E2D]'>Login</h1>
                 </div>
                 <form
-                    className="mx-auto mt-4 p-5 md:p-0 w-full max-w-sm"
+                    className="mx-auto mt-2 p-5 md:p-0 w-full max-w-sm"
                     onSubmit={loginForm.handleSubmit(handleLogin)}
                 >
                     <div className="mb-5">
@@ -176,7 +176,7 @@ const Login = () => {
                         disabled={loadingDemo}
                         className="w-full border border-[#1A324A] text-[#1A324A] disabled:cursor-not-allowed disabled:opacity-75 transition cursor-pointer font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
                     >
-                        {loadingDemo ? "Loading" : "Try Demo"}
+                        {loadingDemo ? "Loading" : "Try Demo Account"}
                     </button>
 
                     <p className="mt-3 text-center text-xs text-gray-500">
