@@ -14,8 +14,9 @@ import Link from 'next/link';
 import AuthHeader from '@/app/_components/AuthHeader/AuthHeader';
 const Login = () => {
     const [loadingApi, setLoadingApi] = useState(false)
+    const [loadingDemo, setLoadingDemo] = useState(false);
     const router = useRouter()
-    
+
     const loginForm = useForm<LoginSchemaType>({
         defaultValues: {
             email: "",
@@ -25,7 +26,7 @@ const Login = () => {
     })
     async function handleLogin(values: LoginSchemaType) {
         setLoadingApi(true)
-      
+
         const res = await signIn("credentials", {
 
             email: values.email,
@@ -51,9 +52,17 @@ const Login = () => {
             setLoadingApi(false)
         }
     }
+    async function handleDemoLogin() {
+        setLoadingDemo(true)
+        await handleLogin({
+            email: "demo203@gmail.com",
+            password: "Mmm123456789##",
+        });
+        setLoadingDemo(false);
+    }
     return (
         <div className='container m-auto md:flex md:items-center md:justify-center bg-white   '>
-            <AuthHeader/>
+            <AuthHeader />
             <div className="md:mt-0 mt-14 md:w-auto w-80 mx-auto">
                 <Image src={loginImage} height={1000} width={1000} priority alt="login" />
             </div>
@@ -136,7 +145,7 @@ const Login = () => {
                     {loadingApi ? (
                         <button
                             disabled
-                            className="w-full text-white opacity-75 bg-[#1A324A] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                            className="w-full cursor-not-allowed text-white opacity-75 bg-[#1A324A] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                         >
                             Loading
                         </button>
@@ -148,7 +157,34 @@ const Login = () => {
                             Login Now
                         </button>
                     )}
+
+                    <div className="relative my-5">
+                        <div className="absolute inset-0 flex items-center">
+                            <div className="w-full border-t border-gray-300"></div>
+                        </div>
+
+                        <div className="relative flex justify-center">
+                            <span className="bg-white px-3 text-sm text-gray-500">
+                                OR
+                            </span>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={handleDemoLogin}
+                        disabled={loadingDemo}
+                        className="w-full border border-[#1A324A] text-[#1A324A] disabled:cursor-not-allowed disabled:opacity-75 transition cursor-pointer font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
+                    >
+                        {loadingDemo ? "Loading" : "Try Demo"}
+                    </button>
+
+                    <p className="mt-3 text-center text-xs text-gray-500">
+                        Explore the app instantly without creating an account.
+                    </p>
+
                 </form>
+
             </div>
         </div>
     )
