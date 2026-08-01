@@ -212,7 +212,7 @@ function SideBar({ open, setOpen }: SideBarProps) {
         <button
           onClick={handleLogOut}
           disabled={loading}
-          className={`mt-6 flex ${loading ? "w-37" :"w-28" } w-28 ms-2 disabled:opacity-50  text-white bg-red-500 cursor-pointer hover:bg-red-600 items-center gap-2 rounded-lg  px-5 py-3 transition `}
+          className={`mt-6 flex  ms-2 disabled:opacity-50  text-red-600  cursor-pointer  items-center gap-2 rounded-lg  px-1 py-3 transition `}
         >
           <FaLock />
           <span>{loading ? "Logging out" :"Logout" }</span>
