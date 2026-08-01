@@ -15,7 +15,7 @@ A modern social media platform built with **Next.js** where users can connect, s
 - 🔐 Secure authentication with NextAuth.js
 - 📝 Create, edit, and delete posts
 - ❤️ Like and unlike posts
-- 💬 Add comments and replies
+- 💬 Comments and replies system
 - 🔖 Bookmark favorite posts
 - 👥 Follow and unfollow users
 - 🔔 Notifications system
@@ -41,31 +41,21 @@ A modern social media platform built with **Next.js** where users can connect, s
 
 ## 📸 Screenshots
 
-### login
-![Screenshot 1](public/screenShots/Screenshot%20(356).png)
+| Login | Register |
+| :---: | :---: |
+| <img src="public/screenShots/Screenshot%20(356).png" width="350"> | <img src="public/screenShots/Screenshot%20(357).png" width="350"> |
 
-### Register
-![Screenshot 2](public/screenShots/Screenshot%20(357).png)
+| Home Feed | My Profile |
+| :---: | :---: |
+| <img src="public/screenShots/Screenshot%20(358).png" width="350"> | <img src="public/screenShots/Screenshot%20(359).png" width="350"> |
 
-### Home page
-![Screenshot 3](public/screenShots/Screenshot%20(358).png)
+| Bookmarks | Suggestions |
+| :---: | :---: |
+| <img src="public/screenShots/Screenshot%20(360).png" width="350"> | <img src="public/screenShots/Screenshot%20(363).png" width="350"> |
 
-### Profile
-![Screenshot 4](public/screenShots/Screenshot%20(359).png)
-
-### BookMarks
-![Screenshot 5](public/screenShots/Screenshot%20(360).png)
-
-### Suggestions
-![Screenshot 6](public/screenShots/Screenshot%20(363).png)
-
-### Followers
-![Screenshot 7](public/screenShots/Screenshot%20(364).png)
-
-### user Profile
-![Screenshot 7](public/screenShots/Screenshot%20(365).png)
-
-
+| Followers | User Profile |
+| :---: | :---: |
+| <img src="public/screenShots/Screenshot%20(364).png" width="350"> | <img src="public/screenShots/Screenshot%20(365).png" width="350"> |
 
 ---
 
@@ -97,9 +87,9 @@ Run the development server:
 npm run dev
 ```
 
-Open:
+Open your browser:
 
-```
+```text
 http://localhost:3000
 ```
 
@@ -107,14 +97,15 @@ http://localhost:3000
 
 ## 📂 Project Structure
 
-```
+```text
 src/
 ├── app/
+├── assets/
 ├── components/
-├── services/
-├── utilities/
 ├── config/
-└── types/
+├── services/
+├── types/
+└── utilities/
 ```
 
 ---
@@ -131,4 +122,5 @@ The project is deployed on **Vercel**.
 
 **Mohamed Ismail**
 
-GitHub: https://github.com/Mohamedxismail
+- GitHub: https://github.com/Mohamedxismail
+- Live Demo: https://social-hub-hv9z.vercel.app
