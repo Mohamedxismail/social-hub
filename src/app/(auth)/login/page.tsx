@@ -70,8 +70,25 @@ const Login = () => {
                 <div className='title text-center'>
                     <h1 className='md:text-4xl text-3xl  font-bold text-[#111E2D]'>Login</h1>
                 </div>
+                <div className="mt-2 p-3 w-full max-w-sm mx-auto">
+                    <div className="bg-[#F5F7FA] border border-[#1A324A]/20 rounded-2xl p-4 text-center">
+                        <p className="text-sm text-[#6A798A] mb-3">
+                            Want to explore the app quickly?
+                        </p>
+
+                        <button
+                            type="button"
+                            onClick={handleDemoLogin}
+                            disabled={loadingDemo}
+                            className="w-full border hover:bg-[#1A324A] hover:text-white duration-500 border-[#1A324A] text-[#1A324A] disabled:cursor-not-allowed disabled:opacity-75 transition cursor-pointer font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
+                        >
+                            {loadingDemo ? "Logging in" : "🚀 Try Demo Account"}
+                        </button>
+
+                    </div>
+                </div>
                 <form
-                    className="mx-auto mt-2 p-5 md:p-0 w-full max-w-sm"
+                    className="mx-auto  p-5 md:p-0 w-full max-w-sm"
                     onSubmit={loginForm.handleSubmit(handleLogin)}
                 >
                     <div className="mb-5">
@@ -157,31 +174,6 @@ const Login = () => {
                             Login Now
                         </button>
                     )}
-
-                    <div className="relative my-5">
-                        <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-300"></div>
-                        </div>
-
-                        <div className="relative flex justify-center">
-                            <span className="bg-white px-3 text-sm text-gray-500">
-                                OR
-                            </span>
-                        </div>
-                    </div>
-
-                    <button
-                        type="button"
-                        onClick={handleDemoLogin}
-                        disabled={loadingDemo}
-                        className="w-full border border-[#1A324A] text-[#1A324A] disabled:cursor-not-allowed disabled:opacity-75 transition cursor-pointer font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
-                    >
-                        {loadingDemo ? "Loading" : "Try Demo Account"}
-                    </button>
-
-                    <p className="mt-3 text-center text-xs text-gray-500">
-                        Explore the app instantly without creating an account.
-                    </p>
 
                 </form>
 
